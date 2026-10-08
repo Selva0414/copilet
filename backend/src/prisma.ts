@@ -1,5 +1,5 @@
 import 'dotenv/config';
-// @ts-expect-error - Prisma client is generated dynamically, IDE might lag in recognizing it
+// @ts-ignore
 import { PrismaClient } from '@prisma/client';
 import { Pool } from 'pg';
 import { PrismaPg } from '@prisma/adapter-pg';
