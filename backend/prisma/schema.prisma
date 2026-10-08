@@ -1,0 +1,222 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id                 String              @id @default(uuid())
+  email              String              @unique
+  password           String
+  createdAt          DateTime            @default(now())
+  updatedAt          DateTime            @updatedAt
+  profile            Profile?
+  healthMetrics      HealthMetric[]
+  symptoms           Symptom[]
+  medications        Medication[]
+  healthRecords      HealthRecord[]
+  goals              HealthGoal[]
+  dailyActivities    DailyActivity[]
+  sleepRecords       SleepRecord[]
+  waterRecords       WaterRecord[]
+  nutritionRecords   NutritionRecord[]
+  moodRecords        MoodRecord[]
+  chatSessions       ChatSession[]
+  appointments       Appointment[]
+  emergencyContacts  EmergencyContact[]
+}
+
+model Profile {
+  id                 String   @id @default(uuid())
+  userId             String   @unique
+  user               User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  firstName          String
+  lastName           String
+  age                Int?
+  gender             String?
+  height             Float?
+  weight             Float?
+  bloodGroup         String?
+  allergies          String?
+  existingConditions String?
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+}
+
+model HealthMetric {
+  id        String   @id @default(uuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  type      String   // e.g., "heart_rate", "blood_pressure", "weight"
+  value     String
+  unit      String
+  date      DateTime @default(now())
+}
+
+model Symptom {
+  id          String   @id @default(uuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  name        String
+  severity    String
+  duration    String
+  notes       String?
+  date        DateTime @default(now())
+}
+
+model Medication {
+  id               String               @id @default(uuid())
+  userId           String
+  user             User                 @relation(fields: [userId], references: [id], onDelete: Cascade)
+  name             String
+  dosage           String
+  frequency        String
+  startDate        DateTime
+  endDate          DateTime?
+  prescribingDoctor String?
+  notes            String?
+  schedules        MedicationSchedule[]
+}
+
+model MedicationSchedule {
+  id           String     @id @default(uuid())
+  medicationId String
+  medication   Medication @relation(fields: [medicationId], references: [id], onDelete: Cascade)
+  time         String
+  taken        Boolean    @default(false)
+  date         DateTime
+}
+
+model HealthRecord {
+  id          String   @id @default(uuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  title       String
+  type        String   // "lab_result", "prescription", etc.
+  fileUrl     String
+  date        DateTime @default(now())
+  report      MedicalReport?
+}
+
+model MedicalReport {
+  id             String       @id @default(uuid())
+  healthRecordId String       @unique
+  healthRecord   HealthRecord @relation(fields: [healthRecordId], references: [id], onDelete: Cascade)
+  extractedData  Json?
+  aiExplanation  String?
+}
+
+model Appointment {
+  id        String   @id @default(uuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  doctorName String
+  type      String
+  date      DateTime
+  notes     String?
+  aiSummary String?
+}
+
+model HealthGoal {
+  id          String   @id @default(uuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  title       String
+  target      String
+  current     String?
+  type        String
+  startDate   DateTime
+  endDate     DateTime?
+  status      String   @default("active")
+}
+
+model DailyActivity {
+  id          String   @id @default(uuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  steps       Int      @default(0)
+  calories    Int      @default(0)
+  date        DateTime @default(now())
+}
+
+model SleepRecord {
+  id          String   @id @default(uuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  duration    Float    // in hours
+  quality     String?
+  date        DateTime @default(now())
+}
+
+model WaterRecord {
+  id          String   @id @default(uuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  amount      Float    // in liters or ml
+  date        DateTime @default(now())
+}
+
+model NutritionRecord {
+  id          String   @id @default(uuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  calories    Int?
+  protein     Float?
+  carbs       Float?
+  fat         Float?
+  date        DateTime @default(now())
+}
+
+model MoodRecord {
+  id          String   @id @default(uuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  mood        String   // "happy", "neutral", "sad", etc.
+  notes       String?
+  date        DateTime @default(now())
+}
+
+model ChatSession {
+  id          String        @id @default(uuid())
+  userId      String
+  user        User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  title       String?
+  createdAt   DateTime      @default(now())
+  messages    ChatMessage[]
+}
+
+model ChatMessage {
+  id            String      @id @default(uuid())
+  chatSessionId String
+  chatSession   ChatSession @relation(fields: [chatSessionId], references: [id], onDelete: Cascade)
+  role          String      // "user" or "assistant"
+  content       String
+  createdAt     DateTime    @default(now())
+}
+
+model AIInsight {
+  id          String   @id @default(uuid())
+  userId      String
+  type        String   // "sleep", "activity", etc.
+  content     String
+  createdAt   DateTime @default(now())
+}
+
+model AuditLog {
+  id          String   @id @default(uuid())
+  userId      String?
+  action      String
+  details     Json?
+  createdAt   DateTime @default(now())
+}
+
+model EmergencyContact {
+  id          String   @id @default(uuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  name        String
+  relationship String
+  phone       String
+}
