@@ -11,7 +11,7 @@ export default function LandingPage() {
             <Activity className="h-6 w-6 text-primary" />
           </div>
           <span className="font-bold text-xl tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-slate-900 to-slate-600 dark:from-white dark:to-slate-300">
-            HealthCopilot <span className="text-primary">AI</span>
+            SISU Healthcare <span className="text-primary">AI</span>
           </span>
         </Link>
         <nav className="ml-auto hidden md:flex items-center gap-8">
@@ -31,24 +31,24 @@ export default function LandingPage() {
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] opacity-20 dark:opacity-30 pointer-events-none">
             <div className="absolute inset-0 bg-gradient-to-r from-primary to-blue-400 blur-[100px] rounded-full mix-blend-multiply dark:mix-blend-screen" />
           </div>
-          
+
           <div className="container relative z-10 px-4 md:px-6 mx-auto text-center">
             <div className="inline-flex items-center rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-sm font-medium text-primary mb-8 shadow-sm">
               <span className="flex h-2 w-2 rounded-full bg-primary mr-2 animate-pulse"></span>
               Your intelligent health companion
             </div>
-            
+
             <h1 className="mx-auto max-w-4xl text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl mb-6">
               Understand your health.<br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-500">
                 Track your wellness.
               </span>
             </h1>
-            
+
             <p className="mx-auto max-w-[700px] text-lg text-slate-600 dark:text-slate-400 mb-10 leading-relaxed">
               HealthCopilot AI is your personal healthcare assistant. Prepare better for medical visits, decode complex reports, and track your daily wellness with intelligent insights.
             </p>
-            
+
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link to="/register" className="w-full sm:w-auto inline-flex h-12 items-center justify-center rounded-full bg-primary px-8 text-base font-medium text-white shadow-xl shadow-primary/20 transition-all hover:scale-105 hover:bg-primary/90">
                 Start for free <ArrowRight className="ml-2 h-4 w-4" />
@@ -57,7 +57,7 @@ export default function LandingPage() {
                 Explore features
               </Link>
             </div>
-            
+
             <div className="mt-14 flex items-center justify-center gap-6 text-sm text-slate-500 dark:text-slate-400">
               <div className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-green-500" /> Secure Data</div>
               <div className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-green-500" /> AI Insights</div>
@@ -65,7 +65,7 @@ export default function LandingPage() {
             </div>
           </div>
         </section>
-        
+
         {/* Features Section */}
         <section id="features" className="w-full py-20 bg-white dark:bg-slate-950 relative border-y border-slate-100 dark:border-slate-800">
           <div className="container px-4 md:px-6 mx-auto">
@@ -73,19 +73,19 @@ export default function LandingPage() {
               <h2 className="text-3xl font-bold mb-4">Everything you need for your health journey</h2>
               <p className="text-slate-500 dark:text-slate-400 max-w-2xl mx-auto">Powerful AI tools seamlessly integrated with daily habit tracking to give you a complete picture of your wellbeing.</p>
             </div>
-            
+
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-              <FeatureCard 
+              <FeatureCard
                 icon={<BrainCircuit className="h-8 w-8 text-primary" />}
                 title="AI Copilot"
                 description="Chat naturally with your health assistant to understand your metrics, decode medical jargon, and receive personalized wellness trends."
               />
-              <FeatureCard 
+              <FeatureCard
                 icon={<HeartPulse className="h-8 w-8 text-rose-500" />}
                 title="Holistic Tracking"
                 description="Beautiful, intuitive dashboards to log your sleep, steps, hydration, nutrition, and daily mood all in one secure place."
               />
-              <FeatureCard 
+              <FeatureCard
                 icon={<Stethoscope className="h-8 w-8 text-teal-500" />}
                 title="Doctor Preparation"
                 description="Generate intelligent summaries and a targeted list of questions to ask your physician before your next appointment."
@@ -122,11 +122,11 @@ export default function LandingPage() {
             <Activity className="h-5 w-5 text-primary" />
             <span className="font-semibold">HealthCopilot AI</span>
           </div>
-          
+
           <p className="text-sm text-slate-500 dark:text-slate-400 text-center md:max-w-md">
             HealthCopilot AI provides general wellness information and is not a substitute for professional medical advice, diagnosis, or treatment.
           </p>
-          
+
           <div className="text-sm text-slate-500 dark:text-slate-400">
             © 2026. All rights reserved.
           </div>

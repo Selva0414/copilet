@@ -8,7 +8,7 @@ interface Message {
 
 export default function AiCopilot() {
   const [messages, setMessages] = useState<Message[]>([
-    { role: 'assistant', content: 'Hi there! I am HealthCopilot AI. How can I help you analyze your health trends or answer questions today?' }
+    { role: 'assistant', content: 'Hi there! I am SISU health AI. How can I help you analyze your health trends or answer questions today?' }
   ]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);

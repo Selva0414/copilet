@@ -15,22 +15,21 @@ import DoctorPrep from './DoctorPrep.tsx';
 import Timeline from './Timeline.tsx';
 import EmergencyContacts from './EmergencyContacts.tsx';
 import Settings from './Settings.tsx';
-import { 
-  Activity, 
-  Home, 
-  Bot, 
-  Stethoscope, 
-  BarChart, 
-  FileText, 
-  Pill, 
-  Moon, 
-  Footprints, 
-  Apple, 
-  Smile, 
-  Target, 
-  Calendar, 
-  Clock, 
-  AlertTriangle, 
+import {
+  Home,
+  Bot,
+  Stethoscope,
+  BarChart,
+  FileText,
+  Pill,
+  Moon,
+  Footprints,
+  Apple,
+  Smile,
+  Target,
+  Calendar,
+  Clock,
+  AlertTriangle,
   Settings as SettingsIcon,
   LogOut
 } from 'lucide-react';
@@ -46,8 +45,8 @@ export default function Dashboard() {
       {/* Sidebar */}
       <aside className="w-64 bg-white dark:bg-slate-800 border-r flex flex-col hidden md:flex">
         <div className="h-16 flex items-center px-6 border-b">
-          <Activity className="h-6 w-6 text-primary mr-2" />
-          <span className="font-bold text-lg">HealthCopilot</span>
+          <img src="/logo.png" alt="SISU health logo" className="h-8 w-8 mr-3 object-contain" />
+          <span className="font-bold text-lg">SISU Healthcare</span>
         </div>
         <div className="flex-1 overflow-y-auto py-4">
           <nav className="space-y-1 px-3 text-sm font-medium">
@@ -57,7 +56,7 @@ export default function Dashboard() {
             <NavItem to="/dashboard/analytics" icon={<BarChart size={18} />} label="Analytics" />
             <NavItem to="/dashboard/records" icon={<FileText size={18} />} label="Health Records" />
             <NavItem to="/dashboard/medications" icon={<Pill size={18} />} label="Medications" />
-            
+
             <div className="pt-4 pb-2">
               <p className="px-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">Tracking</p>
             </div>
@@ -65,14 +64,14 @@ export default function Dashboard() {
             <NavItem to="/dashboard/activity" icon={<Footprints size={18} />} label="Activity" />
             <NavItem to="/dashboard/nutrition" icon={<Apple size={18} />} label="Nutrition" />
             <NavItem to="/dashboard/mood" icon={<Smile size={18} />} label="Mood" />
-            
+
             <div className="pt-4 pb-2">
               <p className="px-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">Planning</p>
             </div>
             <NavItem to="/dashboard/goals" icon={<Target size={18} />} label="Goals" />
             <NavItem to="/dashboard/doctor-prep" icon={<Calendar size={18} />} label="Doctor Prep" />
             <NavItem to="/dashboard/timeline" icon={<Clock size={18} />} label="Timeline" />
-            
+
             <div className="pt-4 pb-2">
               <p className="px-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">Account</p>
             </div>
@@ -92,8 +91,8 @@ export default function Dashboard() {
       <main className="flex-1 flex flex-col overflow-hidden">
         <header className="h-16 flex items-center justify-between px-6 bg-white dark:bg-slate-800 border-b md:hidden">
           <div className="flex items-center">
-            <Activity className="h-6 w-6 text-primary mr-2" />
-            <span className="font-bold">HealthCopilot</span>
+            <img src="/logo.png" alt="SISU health logo" className="h-6 w-6 mr-3 object-contain" />
+            <span className="font-bold">SISU health</span>
           </div>
           <button onClick={handleLogout} className="text-gray-500"><LogOut size={20} /></button>
         </header>
@@ -147,7 +146,7 @@ function DashboardHome() {
       try {
         const u = JSON.parse(userString);
         if (u.name) setUserFirstName(u.name.split(' ')[0]);
-      } catch (e) {}
+      } catch (e) { }
     }
 
     const fetchDashboardData = async () => {
@@ -182,7 +181,7 @@ function DashboardHome() {
     <div className="max-w-6xl mx-auto space-y-6 animate-fade-in">
       <h1 className="text-3xl font-bold">Good Morning, {userFirstName} 👋</h1>
       <p className="text-gray-500">Here is your health overview for today.</p>
-      
+
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <MetricCard title="Heart Rate" value="72 BPM" icon="❤️" color="bg-red-50 text-red-600" />
         <MetricCard title="Sleep" value={metrics.sleep} icon="😴" color="bg-indigo-50 text-indigo-600" />
@@ -206,7 +205,7 @@ function DashboardHome() {
           <Bot className="h-6 w-6 text-primary" />
         </div>
         <div>
-          <h3 className="font-bold text-lg mb-1">HealthCopilot AI Insights</h3>
+          <h3 className="font-bold text-lg mb-1">SISU health AI Insights</h3>
           <p className="text-gray-600 dark:text-gray-300 mb-4">Your recorded sleep duration has been more consistent this week. Keep it up!</p>
           <Link to="/dashboard/ai" className="inline-flex items-center text-sm font-medium text-primary hover:underline">
             Chat with AI <ArrowRight size={14} className="ml-1" />
