@@ -46,7 +46,7 @@ export default function Timeline() {
       const headers = { 'Authorization': `Bearer ${token}` };
       
       // Get goals first
-      const goalsRes = await fetch('http://localhost:5000/api/goals', { headers });
+      const goalsRes = await fetch('https://copilet-3.onrender.com/api/goals', { headers });
       const goalsData = await goalsRes.json();
       let goalsText = "be healthier";
       if (goalsData.success && goalsData.data.length > 0) {
@@ -56,7 +56,7 @@ export default function Timeline() {
       // Ask AI for a timeline
       const prompt = `Create a 3-step daily timeline to help me achieve my goals: ${goalsText}. Format exactly as 'TIME - TITLE: DESCRIPTION'. Keep it short.`;
       
-      const chatRes = await fetch('http://localhost:5000/api/chat', {
+      const chatRes = await fetch('https://copilet-3.onrender.com/api/chat', {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,

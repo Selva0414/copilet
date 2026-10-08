@@ -155,9 +155,9 @@ function DashboardHome() {
         const headers = { 'Authorization': `Bearer ${token}` };
 
         const [sleepRes, activityRes, moodRes] = await Promise.all([
-          fetch('http://localhost:5000/api/sleep', { headers }),
-          fetch('http://localhost:5000/api/activity', { headers }),
-          fetch('http://localhost:5000/api/mood', { headers })
+          fetch('https://copilet-3.onrender.com/api/sleep', { headers }),
+          fetch('https://copilet-3.onrender.com/api/activity', { headers }),
+          fetch('https://copilet-3.onrender.com/api/mood', { headers })
         ]);
 
         const sleepData = await sleepRes.json();

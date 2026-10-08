@@ -19,7 +19,7 @@ export default function EmergencyContacts() {
   const fetchContacts = async () => {
     try {
       const token = localStorage.getItem('token');
-      const res = await fetch('http://localhost:5000/api/emergency', {
+      const res = await fetch('https://copilet-3.onrender.com/api/emergency', {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       const data = await res.json();
@@ -43,7 +43,7 @@ export default function EmergencyContacts() {
     
     try {
       const token = localStorage.getItem('token');
-      const res = await fetch('http://localhost:5000/api/emergency', {
+      const res = await fetch('https://copilet-3.onrender.com/api/emergency', {
         method: 'POST',
         headers: { 
           'Content-Type': 'application/json',

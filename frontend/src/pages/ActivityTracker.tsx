@@ -18,7 +18,7 @@ export default function ActivityTracker() {
   const fetchActivities = async () => {
     try {
       const token = localStorage.getItem('token');
-      const res = await fetch('http://localhost:5000/api/activity', {
+      const res = await fetch('https://copilet-3.onrender.com/api/activity', {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       const data = await res.json();
@@ -42,7 +42,7 @@ export default function ActivityTracker() {
     
     try {
       const token = localStorage.getItem('token');
-      const res = await fetch('http://localhost:5000/api/activity', {
+      const res = await fetch('https://copilet-3.onrender.com/api/activity', {
         method: 'POST',
         headers: { 
           'Content-Type': 'application/json',

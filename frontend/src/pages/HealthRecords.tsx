@@ -20,7 +20,7 @@ export default function HealthRecords() {
   const fetchRecords = async () => {
     try {
       const token = localStorage.getItem('token');
-      const res = await fetch('http://localhost:5000/api/records', {
+      const res = await fetch('https://copilet-3.onrender.com/api/records', {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       const data = await res.json();
@@ -44,7 +44,7 @@ export default function HealthRecords() {
     
     try {
       const token = localStorage.getItem('token');
-      const res = await fetch('http://localhost:5000/api/records', {
+      const res = await fetch('https://copilet-3.onrender.com/api/records', {
         method: 'POST',
         headers: { 
           'Content-Type': 'application/json',

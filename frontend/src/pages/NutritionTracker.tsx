@@ -22,7 +22,7 @@ export default function NutritionTracker() {
   const fetchRecords = async () => {
     try {
       const token = localStorage.getItem('token');
-      const res = await fetch('http://localhost:5000/api/nutrition', {
+      const res = await fetch('https://copilet-3.onrender.com/api/nutrition', {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       const data = await res.json();
@@ -46,7 +46,7 @@ export default function NutritionTracker() {
     
     try {
       const token = localStorage.getItem('token');
-      const res = await fetch('http://localhost:5000/api/nutrition', {
+      const res = await fetch('https://copilet-3.onrender.com/api/nutrition', {
         method: 'POST',
         headers: { 
           'Content-Type': 'application/json',

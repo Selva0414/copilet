@@ -18,7 +18,7 @@ export default function MoodTracker() {
   const fetchRecords = async () => {
     try {
       const token = localStorage.getItem('token');
-      const res = await fetch('http://localhost:5000/api/mood', {
+      const res = await fetch('https://copilet-3.onrender.com/api/mood', {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       const data = await res.json();
@@ -42,7 +42,7 @@ export default function MoodTracker() {
     
     try {
       const token = localStorage.getItem('token');
-      const res = await fetch('http://localhost:5000/api/mood', {
+      const res = await fetch('https://copilet-3.onrender.com/api/mood', {
         method: 'POST',
         headers: { 
           'Content-Type': 'application/json',

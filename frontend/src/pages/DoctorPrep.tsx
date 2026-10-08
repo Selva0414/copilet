@@ -21,7 +21,7 @@ export default function DoctorPrep() {
   const fetchAppointments = async () => {
     try {
       const token = localStorage.getItem('token');
-      const res = await fetch('http://localhost:5000/api/appointments', {
+      const res = await fetch('https://copilet-3.onrender.com/api/appointments', {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       const data = await res.json();
@@ -45,7 +45,7 @@ export default function DoctorPrep() {
     
     try {
       const token = localStorage.getItem('token');
-      const res = await fetch('http://localhost:5000/api/appointments', {
+      const res = await fetch('https://copilet-3.onrender.com/api/appointments', {
         method: 'POST',
         headers: { 
           'Content-Type': 'application/json',

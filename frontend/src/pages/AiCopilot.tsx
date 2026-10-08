@@ -33,7 +33,7 @@ export default function AiCopilot() {
     
     try {
       const token = localStorage.getItem('token');
-      const res = await fetch('http://localhost:5000/api/chat', {
+      const res = await fetch('https://copilet-3.onrender.com/api/chat', {
         method: 'POST',
         headers: { 
           'Content-Type': 'application/json',

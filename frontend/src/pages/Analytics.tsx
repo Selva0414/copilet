@@ -28,8 +28,8 @@ export default function Analytics() {
         const headers = { 'Authorization': `Bearer ${token}` };
         
         const [sleepRes, activityRes] = await Promise.all([
-          fetch('http://localhost:5000/api/sleep', { headers }),
-          fetch('http://localhost:5000/api/activity', { headers })
+          fetch('https://copilet-3.onrender.com/api/sleep', { headers }),
+          fetch('https://copilet-3.onrender.com/api/activity', { headers })
         ]);
         
         const sleepJson = await sleepRes.json();

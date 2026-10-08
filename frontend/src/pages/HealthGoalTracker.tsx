@@ -24,7 +24,7 @@ export default function HealthGoalTracker() {
   const fetchGoals = async () => {
     try {
       const token = localStorage.getItem('token');
-      const res = await fetch('http://localhost:5000/api/goals', {
+      const res = await fetch('https://copilet-3.onrender.com/api/goals', {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       const data = await res.json();
@@ -48,7 +48,7 @@ export default function HealthGoalTracker() {
     
     try {
       const token = localStorage.getItem('token');
-      const res = await fetch('http://localhost:5000/api/goals', {
+      const res = await fetch('https://copilet-3.onrender.com/api/goals', {
         method: 'POST',
         headers: { 
           'Content-Type': 'application/json',

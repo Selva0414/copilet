@@ -22,7 +22,7 @@ export default function SymptomsTracker() {
   const fetchSymptoms = async () => {
     try {
       const token = localStorage.getItem('token');
-      const res = await fetch('http://localhost:5000/api/symptoms', {
+      const res = await fetch('https://copilet-3.onrender.com/api/symptoms', {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       const data = await res.json();
@@ -46,7 +46,7 @@ export default function SymptomsTracker() {
     
     try {
       const token = localStorage.getItem('token');
-      const res = await fetch('http://localhost:5000/api/symptoms', {
+      const res = await fetch('https://copilet-3.onrender.com/api/symptoms', {
         method: 'POST',
         headers: { 
           'Content-Type': 'application/json',

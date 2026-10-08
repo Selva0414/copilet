@@ -18,7 +18,7 @@ export default function SleepTracker() {
   const fetchRecords = async () => {
     try {
       const token = localStorage.getItem('token');
-      const res = await fetch('http://localhost:5000/api/sleep', {
+      const res = await fetch('https://copilet-3.onrender.com/api/sleep', {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       const data = await res.json();
@@ -42,7 +42,7 @@ export default function SleepTracker() {
     
     try {
       const token = localStorage.getItem('token');
-      const res = await fetch('http://localhost:5000/api/sleep', {
+      const res = await fetch('https://copilet-3.onrender.com/api/sleep', {
         method: 'POST',
         headers: { 
           'Content-Type': 'application/json',
