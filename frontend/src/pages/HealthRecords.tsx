@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { FileText, Plus, Upload, Download, FileType2 } from 'lucide-react';
+import { FileText, Upload, Download, FileType2 } from 'lucide-react';
 
 interface HealthRecord {
   id: string;

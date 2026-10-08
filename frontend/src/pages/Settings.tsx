@@ -15,7 +15,6 @@ export default function Settings() {
 
   useEffect(() => {
     // Fetch current profile (mocked or real)
-    const token = localStorage.getItem('token');
     const userString = localStorage.getItem('user');
     if (userString) {
       try {

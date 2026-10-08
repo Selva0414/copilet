@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import { BarChart as BarChartIcon, TrendingUp, Activity, Moon } from 'lucide-react';
+import { BarChart as BarChartIcon, TrendingUp, Moon } from 'lucide-react';
 import { 
-  LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend 
+  LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer 
 } from 'recharts';
 
 interface SleepData {
